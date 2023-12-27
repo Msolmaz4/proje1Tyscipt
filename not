@@ -1,0 +1,26 @@
+ui/shadcn
+https://ui.shadcn.com/docs/installation/vite biurdan virrt sectik ordan 
+tsconfig.json bunu ekledik
+"baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    npm i -D @types/node sonra bunu yaprik
+    sonra 
+     bunu vite.config.ts yapistirdik
+    import path from "path"
+import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite"
+ 
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+})
+
+npx shadcn-ui@latest init sonra yes tiklasik
