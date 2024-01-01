@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form"
 import {
   Form,
   FormControl,
-  FormDescription,
+
   FormField,
   FormItem,
   FormLabel,
@@ -15,16 +15,17 @@ import {
 import { Input } from "@/components/ui/input"
 import { SignupValidation } from "@/lib/validation"
 import { z } from "zod"
-import { Divide } from "lucide-react"
+
 import Loader from "@/components/shared/Loader"
+import { Link } from "react-router-dom"
 
 
 
 const SignupForm = () => {
-const isLoading = true
+const isLoading = false
 
 
- // 1. Define your form.
+
  const form = useForm<z.infer<typeof SignupValidation>>({
   resolver: zodResolver(SignupValidation),
   defaultValues: {
@@ -35,11 +36,11 @@ const isLoading = true
   },
 })
 
-// 2. Define a submit handler.
-function onSubmit(values: z.infer<typeof SignupValidation>) {
-  // Do something with the form values.
-  // ✅ This will be type-safe and validated.
+
+async function onSubmit(values: z.infer<typeof SignupValidation>) {
+ 
   console.log(values)
+  const newUser = await createUserAccount(values)
 }
 
   return (
@@ -86,7 +87,7 @@ function onSubmit(values: z.infer<typeof SignupValidation>) {
         name="email"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>Name</FormLabel>
+            <FormLabel>Email</FormLabel>
             <FormControl>
               <Input placeholder="email" {...field} type="" className="shad-input" />
             </FormControl>
@@ -116,6 +117,11 @@ function onSubmit(values: z.infer<typeof SignupValidation>) {
           </div>):("Signup")
         }
         </Button>
+        <p className="text-small-regular text-light-2 text-center mt-2 ">
+          Already have an account ?
+            <Link to="/sign-in" className="text-primary-500">Log in</Link>
+          `
+        </p>
     </form>
     </div>
   </Form>

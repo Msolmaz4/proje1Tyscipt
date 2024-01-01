@@ -24,3 +24,6 @@ export default defineConfig({
 })
 
 npx shadcn-ui@latest init sonra yes tiklasik
+
+sonra sighnup yaptik sonra appwrite kurduk sonrdsainda ise local env dostai kurduk ve appwrite bir dosya kurduk 
+env yapinca env hata veriyordu bunun ivin vite-env dosyasi kurduk
