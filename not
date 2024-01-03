@@ -27,3 +27,5 @@ npx shadcn-ui@latest init sonra yes tiklasik
 
 sonra sighnup yaptik sonra appwrite kurduk sonrdsainda ise local env dostai kurduk ve appwrite bir dosya kurduk 
 env yapinca env hata veriyordu bunun ivin vite-env dosyasi kurduk
+ilk olara appwrite klasor olusturduk onun icinde api ts actik burdan basladik 
+config te hepsdini bir arada toplasdik sonra create User yaptik bun sonra signup cagierdik consolda gorduk ve appwrire gorduk.
