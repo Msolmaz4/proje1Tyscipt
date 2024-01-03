@@ -5,6 +5,20 @@ import RootLayout from "./_root/RootLayout";
 import { Home } from "./_root/pages";
 import "./globals.css"
 import { Routes, Route } from "react-router-dom";
+import { Toaster } from "@/components/ui/toaster"
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head />
+      <body>
+        <main>{children}</main>
+        <Toaster />
+      </body>
+    </html>
+  )
+}
+
 function App() {
   return (
     <>
@@ -22,6 +36,7 @@ function App() {
           </Route>
           
         </Routes>
+        <Toaster />
       </main>
     </>
   );

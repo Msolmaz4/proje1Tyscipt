@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { useToast } from "@/components/ui/use-toast"
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
@@ -24,7 +25,7 @@ import { createUserAccount } from "@/lib/appwrite/api"
 
 const SignupForm = () => {
 const isLoading = false
-
+const { toast } = useToast()
 
 
  const form = useForm<z.infer<typeof SignupValidation>>({
@@ -43,6 +44,12 @@ async function onSubmit(values: z.infer<typeof SignupValidation>) {
   console.log(values)
   const newUser = await createUserAccount(values)
   console.log(newUser)
+  if(!newUser){
+    return  toast({
+      title: "Sign Up failed.Please try again",
+ 
+    })
+  }
 }
 
   return (
